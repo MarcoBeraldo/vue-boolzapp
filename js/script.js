@@ -1,12 +1,13 @@
 const app = new Vue({
   el: "#root",
   data: {
+    newMessage: "",
+    currentContact: 0,
     user: {
       name: "Marca",
       avatar: "_io",
       visible: true,
     },
-    currentContact: 0,
     contacts: [
       {
         name: "Michele",
@@ -97,6 +98,29 @@ const app = new Vue({
   methods: {
     showChat(index) {
       this.currentContact = index;
+    },
+
+    getDate() {
+      return new Date().toLocaleString();
+    },
+
+    getAnswer(index) {
+      this.contacts[index].messages.push({
+        date: this.getDate(),
+        text: "ok",
+        status: "received",
+      });
+    },
+
+    addMessage(newMessage, index) {
+      this.contacts[index].messages.push({
+        date: this.getDate(),
+        text: this.newMessage,
+        status: "sent",
+      });
+      this.newMessage = "";
+
+      setInterval(getAnswer(index), 3000);
     },
   },
 });
