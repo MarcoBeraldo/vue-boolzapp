@@ -32,7 +32,7 @@
                     <header id="contacts-section-header">
                         <div class="user-info">
                             <div class="figure">
-                                <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">                                
+                                <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
                             </div>
                             <span>{{user.name}}</span>
                         </div>
@@ -53,7 +53,7 @@
 
                         </div>
                     </div>
-                    <div class="search-bar p-2">                        
+                    <div class="search-bar p-2">
                         <div class="d-flex justify-content-center align-items-center w-100">
                            <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                            <input class="w-100" type="text" placeholder="Cerca o inizia una nuova chat">
@@ -61,11 +61,11 @@
                     </div>
                     <div id="contacts-list">
 
-                        
+
                         <div v-for="(contact, i) in contacts" class="contact-card" @click="showChat(i)">
                              <div class="contact-info">
                              <div class="figure">
-                                    <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">                                
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                 </div>
                                 <span class="ms-2">{{contact.name}}</span>
                             </div>
@@ -77,8 +77,8 @@
                     <header id="chat-section-header">
                         <div class="user-info">
                             <div class="figure">
-                                <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`" 
-                                :alt="contacts[currentContact].name">                                
+                                <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`"
+                                :alt="contacts[currentContact].name">
                             </div>
                             <span>{{contacts[currentContact].name}}</span>
                         </div>
@@ -89,13 +89,13 @@
                         </div>
                     </header>
                     <main id="chat-section-main">
-                        <div v-for="message in contacts[currentContact].messages"  
+                        <div v-for="message in contacts[currentContact].messages"
                         :class="['message-container', message.status]">
                             <div class="message">
                                 <p class="mb-0"> {{ message.text }}</p>
-                                <time>{{message.date}}</time>                            
+                                <time>{{message.date}}</time>
                             </div>
-                        </div>                        
+                        </div>
                     </main>
                     <footer id="chat-section-footer">
                         <i class="fa-regular fa-face-smile"></i>
