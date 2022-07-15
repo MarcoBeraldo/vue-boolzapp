@@ -56,13 +56,13 @@
                     <div class="search-bar p-2">
                         <div class="d-flex justify-content-center align-items-center w-100">
                            <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                           <input class="w-100" type="text" placeholder="Cerca o inizia una nuova chat">
+                           <input v-model="search" class="w-100" type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                     <div id="contacts-list">
 
 
-                        <div v-for="(contact, i) in contacts" class="contact-card" @click="showChat(i)">
+                        <div v-for="(contact, i) in filteredContacts" class="contact-card" @click="showChat(i)">
                              <div class="contact-info">
                              <div class="figure">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">

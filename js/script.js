@@ -1,6 +1,7 @@
 const app = new Vue({
   el: "#root",
   data: {
+    search: "",
     newMessage: "",
     currentContact: 0,
     user: {
@@ -94,14 +95,20 @@ const app = new Vue({
       },
     ],
   },
-  computed: {},
+  computed: {
+    filteredContacts() {
+      return this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    },
+  },
   methods: {
     showChat(index) {
       this.currentContact = index;
     },
 
     getDate() {
-      return new Date().toLocaleString();
+      return new Date().toLocaleString("fr-BE");
     },
 
     getAnswer(index) {
@@ -122,7 +129,7 @@ const app = new Vue({
 
       setTimeout(() => {
         this.getAnswer(index);
-      }, 3000);
+      }, 1000);
     },
   },
 });
