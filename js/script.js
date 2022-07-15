@@ -94,5 +94,9 @@ const app = new Vue({
     ],
   },
   computed: {},
-  methods: {},
+  methods: {
+    showChat(index) {
+      this.currentContact = index;
+    },
+  },
 });

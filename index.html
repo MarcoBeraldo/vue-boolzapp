@@ -60,7 +60,9 @@
                         </div>
                     </div>
                     <div id="contacts-list">
-                        <div v-for="contact in contacts" class="contact-card">
+
+                        
+                        <div v-for="(contact, i) in contacts" class="contact-card" @click="showChat(i)">
                              <div class="contact-info">
                              <div class="figure">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">                                
@@ -75,9 +77,10 @@
                     <header id="chat-section-header">
                         <div class="user-info">
                             <div class="figure">
-                                <img src="img/avatar_io.jpg" alt="User">                                
+                                <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`" 
+                                :alt="contacts[currentContact].name">                                
                             </div>
-                            <span>{{user.name}}</span>
+                            <span>{{contacts[currentContact].name}}</span>
                         </div>
                         <div class="icons">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -86,7 +89,8 @@
                         </div>
                     </header>
                     <main id="chat-section-main">
-                        <div v-for="message in contacts[currentContact].messages"  :class="['message-container', message.status]">
+                        <div v-for="message in contacts[currentContact].messages"  
+                        :class="['message-container', message.status]">
                             <div class="message">
                                 <p class="mb-0"> {{ message.text }}</p>
                                 <time>{{message.date}}</time>                            
