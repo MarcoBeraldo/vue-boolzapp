@@ -120,7 +120,9 @@ const app = new Vue({
       });
       this.newMessage = "";
 
-      setInterval(getAnswer(index), 3000);
+      setTimeout(() => {
+        this.getAnswer(index);
+      }, 3000);
     },
   },
 });
