@@ -148,7 +148,7 @@ height: 100%;
 }
 
 .contact-card.current-contact{
-    background-color: #959CA7;
+    background-color: #EAEAEA;
 }
 
 #contacts-list .contact-card:hover{
@@ -251,15 +251,28 @@ display: flex;
     position:relative;
 }
 
-.message-container .message .fa-angle-down{
+.message-container .message .dropdown{
+    position: relative;
+    left: 25px;
+    bottom: 5px;
+}
+
+.message-container .message .dropdown-toggle{
+    font-size: 1.3rem;
+    border: none;
+    color: #959CA7;
+    background-color: transparent;
+    padding: 0 6px;
+    margin: 0;
+    
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     cursor: pointer;
     display: none;
 }
 
-.message-container .message:hover .fa-angle-down{
+.message-container .message:hover .dropdown-toggle{
     display:block;
 }
 
@@ -273,3 +286,4 @@ display: flex;
 .contact-info p{
     font-size: 0.7rem
 }
+

@@ -99,8 +99,13 @@
                         <div v-for="message in contacts[currentContact].messages"
                         :class="['message-container', message.status]">
                             <div class="message">
-                                <i  class="fa-solid fa-angle-down"></i>
-                                
+                                <div class="dropdown">
+                                    <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                                    
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                      <li><a class="dropdown-item" href="#">Delete Message</a></li>                                      
+                                    </ul>
+                                  </div>
 
 
 
