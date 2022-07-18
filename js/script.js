@@ -138,5 +138,11 @@ const app = new Vue({
         this.getAnswer(index);
       }, 1000);
     },
+
+    deleteMessage(index, currentContact) {
+      const contactMessages = this.filteredContacts[currentContact].messages;
+
+      contactMessages.splice(index, 1);
+    },
   },
 });
