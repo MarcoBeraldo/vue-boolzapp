@@ -120,6 +120,7 @@ const app = new Vue({
     },
 
     addMessage(newMessage, index) {
+      if (!this.newMessage) return;
       this.contacts[index].messages.push({
         date: this.getDate(),
         text: this.newMessage,

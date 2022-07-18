@@ -99,7 +99,7 @@
                     </main>
                     <footer id="chat-section-footer">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input v-model="newMessage" @keyup.enter="addMessage(newMessage, currentContact)" type="text">
+                        <input v-model.trim ="newMessage" @keyup.enter="addMessage(newMessage, currentContact)" type="text">
                         <i class="fa-solid fa-microphone"></i>
                     </footer>
                 </div>
