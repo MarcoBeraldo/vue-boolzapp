@@ -21,7 +21,7 @@
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
 
-    <title>Boilerplate</title>
+    <title>Boolzapp</title>
 </head>
 
 <body>
@@ -59,15 +59,22 @@
                            <input v-model="search" class="w-100" type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
+
                     <div id="contacts-list">
 
 
-                        <div v-for="(contact, i) in filteredContacts" class="contact-card" @click="showChat(i)">
+                        <div v-for="(contact, i) in filteredContacts" class="contact-card" v-if="contact.visible"
+                        :class="{ 'current-contact' : currentContact === i}" @click="showChat(i)">
+
                              <div class="contact-info">
-                             <div class="figure">
+                                <div class="figure">
                                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                 </div>
-                                <span class="ms-2">{{contact.name}}</span>
+                                <div class="d-flex-col ms-2">
+                                    <h6 class="mb-1"><b>{{contact.name}}</b></h6>
+                                    <p class="mb-0"> {{ lastMessage(i) }}</p>
+                                    <p class="mb-0"> {{contact.messages[contact.messages.length - 1].date}} </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,6 +99,11 @@
                         <div v-for="message in contacts[currentContact].messages"
                         :class="['message-container', message.status]">
                             <div class="message">
+                                <i  class="fa-solid fa-angle-down"></i>
+                                
+
+
+
                                 <p class="mb-0"> {{ message.text }}</p>
                                 <time>{{message.date}}</time>
                             </div>
@@ -110,6 +122,10 @@
 
 
 <!-- javascript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
     <script src="js/script.js"></script>
 </body>
 
