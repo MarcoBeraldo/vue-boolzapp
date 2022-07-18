@@ -97,12 +97,18 @@ const app = new Vue({
   },
   computed: {
     filteredContacts() {
-      return this.contacts.filter((contact) => {
-        return contact.name.toLowerCase().includes(this.search.toLowerCase());
+      return this.contacts.map((contact) => {
+        contact.visible = contact.name.toLowerCase().includes(this.search.toLowerCase());
+        return contact;
       });
     },
   },
   methods: {
+    lastMessage(index) {
+      const contactMessages = this.filteredContacts[index].messages;
+      return contactMessages.length ? contactMessages[contactMessages.length - 1].text : "";
+    },
+
     showChat(index) {
       this.currentContact = index;
     },
